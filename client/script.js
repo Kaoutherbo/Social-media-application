@@ -1,5 +1,5 @@
 const postsListElement = document.querySelector('.posts-list');
-const url = 'https://social-media-app-4hdx.onrender.com/api/posts';
+const url = 'https://social-media-app-ermi.onrender.com/api/posts';
 let posts= [];
 
 
