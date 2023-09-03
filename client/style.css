@@ -22,8 +22,6 @@ body {
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-  display: grid;
-  grid-template-columns: 270px 1fr;
 
   background-color: var(--primary-background);
   color: var(--primary-text);
@@ -32,12 +30,29 @@ body {
   font-weight: var(--font-weight);
 
   & > header{
+    height: 100vh;
     padding: 20px;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-background);
     border-right: .5px solid var(--border-color);
 
-    & > nav{
-      display: grid;
-      gap: 40px;
+    & > .mobile-nav{
+      display: none;
+    }
+
+    & > .desktop-nav{
+      width: 100%;
+
+      & > .insta{
+        display: none;
+      }
+
+      & > ul{
+        margin-top: 40px;
+      }
 
       & > ul > li{
         display: grid;
@@ -63,12 +78,14 @@ body {
   }
 
   & > main{
+    margin-left: 213px;
     & > .stories{
+      overflow-x: scroll;
       border-bottom: .5px solid var(--border-color);
       padding: 50px 40px;
       display: grid;
       grid-template-columns: repeat(9,80px);
-      gap: 30px;
+      gap: 3%;
       & .story{
         width: 72px;
         height: 72px;
@@ -92,8 +109,20 @@ body {
       padding: 20px 60px;
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      gap: 3px;
+      gap: 5px;
+
+      & > .post{
+        height:316.984px ;
+        & > img{
+        width: 100%;
+        height:100% ;
+        object-fit: cover;
+        }
+      }
     }
+  }
+  & > footer{
+    display: none;
   }
 }
 
@@ -101,6 +130,7 @@ body {
   width: 100vw;
   height: 100vh;
   position: fixed;
+  top: 0;
   background-color: rgba(225, 225,225, 0.3);
   z-index: 100;
   place-items: center;
@@ -133,9 +163,13 @@ body {
 
     & > .post-comments{
       grid-column: 2/3;
+      grid-row: 1/2;
       height: 60vh;
+      width: 100%;
       border-bottom: .5px solid var(--border-color);
       padding: 10px;
+      overflow-y: scroll;
+      overflow-x: hidden;
 
       & > .uil{
         margin: 20px 0 20px 90%;
@@ -145,11 +179,28 @@ body {
       & > .title{
           margin-bottom: 20px;
       }
+
+      & > .description{
+        font-size: .8rem;
+        margin-bottom: 15px;
+        width: 50%;
+        height: auto;
+      }
+
+      & > .comments{
+        margin-top: 6px;
+        & > div{
+          margin: 8px 0;
+          font-size: 1rem;
+         }
+      }
+  
     }
 
     & > .like-comment-share{
+      height: 100%;
       grid-column: 2/3;
-      padding: 10px;
+      padding: 15px;
       border-bottom: .5px solid var(--border-color);
       display: grid;
       grid-template-columns: repeat(3,30px) 1fr 30px;
@@ -170,6 +221,7 @@ body {
     }
 
     & > .add-comment{
+      height: 100%;
       grid-column: 2/3;
       
       padding: 10px 20px;
@@ -201,6 +253,7 @@ body {
 .create-popup,.update-popup{
   display: none;
   & > .create-container , .update-container{
+    height: auto;
     padding: 40px;
     & > form{
       margin-top: 40px;
@@ -262,6 +315,206 @@ body {
       color: red;
       border-bottom: .5px solid var(--border-color);
       height: 100%;
+    }
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(36, 36, 36); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--border-color); 
+}
+
+@media (max-width:1000px) {
+  body{
+    & > header{
+      padding: 0px;
+      
+      & > .desktop-nav{
+        height: 90%;
+        padding: 50px 0 0 10px;
+        & > .insta{
+          display: block;
+          margin: 10px;
+        }
+        & > .logo{
+          display: none;
+        }
+
+        & > ul{
+          height: 100%;
+          display: grid;
+          grid-template-rows: repeat(9,1fr);
+
+          & > li {
+            & > p{
+              display: none;
+            }
+          }
+        }
+      }
+
+    }
+    & > main{
+      margin-left: 80px;
+      & > .stories{
+        
+      }
+
+      & > .posts-list{
+        padding: 10px;
+        & > .post{
+          height:250px ;
+        }
+      }
+    }
+
+  }
+
+  .popup-post{
+    display: none;
+  
+    & > .popup-container{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 50% 30% 10% 10%;
+      padding-bottom: 20px;
+  
+      & > .post-img{
+        grid-row: 1/2;
+  
+        & >img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+  
+      & > .post-comments{
+        grid-column: 1/2;
+        grid-row: 2/3;
+        height: 100%;
+      }
+  
+      & > .like-comment-share{
+        height: 100%;
+        grid-column: 1/2;
+        grid-row: 3/4;
+      }
+  
+      & > .add-comment{
+        height: 100%;
+        grid-column: 1/2;
+        grid-row: 4/5;
+      }
+    }
+  }
+
+  .create-popup,.update-popup{
+    & > .create-container , .update-container{
+      height: auto;
+
+      & > form{
+        & > #cancel{
+          margin: 0 20px;
+        }
+        
+      }
+  }
+}
+}
+
+
+@media (max-width:600px) {
+  body{
+    & > header{
+    width: 100vw;
+    height: 100px;
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    z-index: 50;
+
+    & > .desktop-nav{
+      display: none;
+    }
+
+    & > .mobile-nav{
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      justify-items: end;
+      align-items: center;
+      & > .logo{
+        display: block;
+      }
+      & > .insta{
+        display: none;
+      }
+      & > ul{
+      grid-column: 3/4;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 20px;
+      justify-items: center;
+      align-items: center;
+ 
+      }
+    }
+    }
+
+    & > main{
+     margin-left: 0;
+     margin-top: 100px;
+    }
+
+    & > footer{
+      background-color: var(--primary-background);
+      width: 100vw;
+      display: block;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 50;
+      & > ul{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        justify-items: center;
+        padding: 5px;
+        & > li{
+          & > .profile{
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+@media (min-width:1600px) {
+  body{
+    & > main{
+      & > .posts-list{
+        & > .post{
+          height:400px ;
+          }
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 const postsListElement = document.querySelector('.posts-list');
-const url = 'https://social-media-app-4hdx.onrender.com/api/posts';
+const url = 'https://social-media-app-ermi.onrender.com/api/posts';
 let posts= [];
 
 
@@ -45,7 +45,6 @@ const createContainer=document.querySelector('.create-container');
 const createBtn=document.querySelector('.create');
 
 createBtn.onclick = (event) =>{ createPopup.style.display='grid';}
-
 createPopup.onclick = (event) => {
     let isClickInside = createContainer.contains(event.target);
 

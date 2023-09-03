@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/insta.png"/>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
   <title>Social Media App</title>
 </head>
 <body>
   <header>
-    <nav>
-      <img class="logo" src="./images/instagram.png" alt="">
+    <nav class="desktop-nav">
+      <img class="insta" src="./images/instagramLogo.png">
+      <img class="logo" src="./images/instagram.png" >
       <ul>
         <li>
           <img src="./images/home.png" alt="">
@@ -51,6 +53,18 @@
         </li>
       </ul>
     </nav>
+
+    <nav class="mobile-nav">
+      <img class="logo" src="./images/instagram.png" >
+      <ul>
+        <li>
+          <img src="./images/like.png" alt="">
+        </li>
+        <li>
+          <img src="./images/message.png" alt="">
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <main class="main">
@@ -68,6 +82,26 @@
     <section  class="posts-list"></section>
   </main>
 
+  <footer>
+    <ul>
+      <li>
+        <img src="./images/home.png" alt="">
+      </li>
+      <li>
+        <img src="./images/search.png" alt="">
+      </li>
+      <li class="create">
+        <img src="./images/create.png" alt="">
+      </li>
+      <li>
+        <img src="./images/reel.png" alt="">
+      </li>
+      <li>
+        <img class="profile" src="./images/profile.jpg" alt="">
+      </li>
+    </ul>
+  </footer>
+
   <!--popup post-->
   <div class="popup popup-post" id="post3">
     <div class="container popup-container">
@@ -80,6 +114,7 @@
         <p class="description" id="post-description">Post Description</p> 
 
         <!-- Comments Section -->
+        <h4>Comments</h4>
       <div class="comments">
         <!-- Comments will be dynamically added here -->
       </div>
