@@ -27,6 +27,9 @@ const createPostDom = (id,img) => {
     }
 )(posts , createPostDom);
 
+
+
+
 //popup post
 const popupPost=document.querySelector('.popup-post');
 const postContainer=document.querySelector('.popup-container');
@@ -53,6 +56,40 @@ createPopup.onclick = (event) => {
     }
 }
 
+// For the mobile create btn
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded event fired');
+  
+    const createBtn = document.querySelector('.createMobile');
+    const createPopup = document.querySelector('.create-popup');
+    const createContainer = document.querySelector('.create-container');
+    const popupPost = document.querySelector('.popup-post');
+    const postContainer = document.querySelector('.popup-container');
+  
+    createBtn.onclick = (event) => {
+      console.log('Create button clicked');
+      createPopup.style.display = 'grid';
+    }
+  
+    createPopup.onclick = (event) => {
+      console.log('Create popup clicked');
+      let isClickInside = createContainer.contains(event.target);
+  
+      if (!isClickInside) {
+        createPopup.style.display = 'none';
+      }
+    }
+  
+    popupPost.onclick = (event) => {
+      console.log('Popup Post clicked');
+      let isClickInside = postContainer.contains(event.target);
+  
+      if (!isClickInside) {
+        popupPost.style.display = 'none';
+      }
+    }
+  });
+    
 //like
 let isLiked =false;
 const likeBtn=document.querySelector('.like-btn');

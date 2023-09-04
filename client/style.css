@@ -355,6 +355,7 @@ body {
           height: 100%;
           display: grid;
           grid-template-rows: repeat(9,1fr);
+          cursor: pointer;
 
           & > li {
             & > p{
@@ -367,9 +368,7 @@ body {
     }
     & > main{
       margin-left: 80px;
-      & > .stories{
-        
-      }
+
 
       & > .posts-list{
         padding: 10px;
@@ -420,7 +419,7 @@ body {
   }
 
   .create-popup,.update-popup{
-    & > .create-container , .update-container{
+    & > .create-container ,& > .update-container{
       height: auto;
 
       & > form{
@@ -467,7 +466,7 @@ body {
       gap: 20px;
       justify-items: center;
       align-items: center;
- 
+      cursor: pointer;
       }
     }
     }
@@ -490,6 +489,7 @@ body {
         grid-template-columns: repeat(5,1fr);
         justify-items: center;
         padding: 5px;
+        cursor: pointer;
         & > li{
           & > .profile{
             width: 27px;
